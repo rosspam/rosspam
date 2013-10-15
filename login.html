@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>РосСпам &middot; Вход</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="РосСпам - автоматическая отправка жалобы в ФАС России на рекламное SMS-сообщение (СМС-спам)">
+    <meta name="keywords" content="смс, спам, жалоба, ФАС, ФАС России, федеральная, антимонопольная, служба, России, РФ, приложение, андроид, росспам, sms, spam, android, rosspam">
+    <meta name="description" content="Сервис для автоматического формирования жалобы в Федеральную антимонопольную службу России (ФАС) на рекламное SMS-сообщение (СМС-спам).">
+    <meta name="author" content="RosSpam">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 48px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 30px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-43713576-1']);
+      _gaq.push(['_setDomainName', 'rosspam.org']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/">Главная</a></li>
+          <li><a href="register">Регистрация</a></li>
+          <li class="active"><a href="login">Войти</a></li>
+        </ul>
+        <h3 class="muted">РосСпам <sup><abbr title="альфа-версия" data-toggle="modal" href="#modal-help-hash">&alpha;</abbr></sup></h3>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span6 offset3">
+          <legend>Вход</legend>
+          <div class="alert alert-error hide" id="alert-result">
+            <div id="alert-result-body"></div>
+          </div>
+          <form method="POST" action="" accept-charset="UTF-8">
+            <input type="text" id="phone" class="span6" name="phone" placeholder="79161234567">
+            <input type="password" id="password" class="span6" name="password" placeholder="пароль">
+            <label class="checkbox">
+              <input type="checkbox" name="remember" value="1"> Запомнить
+            </label>
+            <button  id="login" name="login" class="btn btn-info btn-block">Войти</button>
+          </form>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p></p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#phone').focus();
+
+        $('#login').click(function() {
+          var phone = $('#phone').val(); // TODO: hash phonenumber here?
+          var password = $('#password').val();
+
+          $.ajax({
+              type: 'POST',
+              data: {'phone': phone,
+                     'password': password},
+              dataType: 'json',
+              success: function (data, textStatus) {
+                if (data.success == true) {
+                  location.replace('profile');
+                } else {
+                  $('#alert-result-body').html(data.descriptionRU);
+                  $('#alert-result').show();
+                  $('#phone').focus();
+                }
+              },
+              error: function (jqXHR, textStatus) {
+                $('#alert-result-body').html('Неизвестная ошибка: '+jqXHR.status+' '+jqXHR.statusText+' ('+textStatus+')');
+                $('#alert-result').show();
+              },
+              beforeSend: function(){
+                $('#login').button('disable');
+              },
+              complete: function(){
+                $('#login').button('enable');
+              }
+            });
+
+          return false; // don't submit form automatically
+        });
+      });
+    </script>
+  </body>
+</html>

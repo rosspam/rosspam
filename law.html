@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>РосСпам &middot; Законодательство</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="РосСпам - автоматическая отправка жалобы в ФАС России на рекламное SMS-сообщение (СМС-спам)">
+    <meta name="keywords" content="смс, спам, жалоба, ФАС, ФАС России, федеральная, антимонопольная, служба, России, РФ, приложение, андроид, росспам, sms, spam, android, rosspam">
+    <meta name="description" content="Сервис для автоматического формирования жалобы в Федеральную антимонопольную службу России (ФАС) на рекламное SMS-сообщение (СМС-спам).">
+    <meta name="author" content="RosSpam">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 48px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 30px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-43713576-1']);
+      _gaq.push(['_setDomainName', 'rosspam.org']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/">Главная</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Читать
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="faq">Вопросы и ответы</a></li>
+              <li><a href="law">Законодательство</a></li>
+            </ul>
+          </li>
+          {% if user_authorized %}
+          <li><a href="profile">Профиль</a></li>
+          <li><a href="logout">Выйти</a></li>
+          {% else %}
+          <li><a href="register">Регистрация</a></li>
+          <li><a href="login">Войти</a></li>
+          {% endif %}
+        </ul>
+        <h3 class="muted">РосСпам <sup><abbr title="альфа-версия" data-toggle="modal" href="#modal-help-hash">&alpha;</abbr></sup></h3>
+
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <h4>Законодательство</h4>
+          <ul>
+            <!-- TODO: законы показывать отдельно, внутренние правила ФАС - отдельно -->
+            <li><a href="http://www.consultant.ru/popular/advert" target="_blank">Федеральный закон от 13.03.2006 N 38-ФЗ (ред. от 23.07.2013) "О рекламе"</a></li>
+            <li><a href="http://www.consultant.ru/popular/o-personalnyh-dannyh/" target="_blank">Федеральный закон от 27.07.2006 N 152-ФЗ (ред. от 23.07.2013) "О персональных данных"</a></li>
+            <li><a href="http://www.fas.gov.ru/legislative-acts/legislative-acts_50345.html" target="_blank">Федеральный закон от 02.05.2006 N 59-ФЗ (ред. от 02.07.2013) "О порядке рассмотрения обращений граждан Российской федерации"</a></li>
+            <li><a href="http://www.fas.gov.ru/contact-fas/treatment/" target="_blank">Порядок обращения в ФАС России</a></li>
+            <li><a href="http://fas.gov.ru/contact-fas/sample-documents/sample-documents_30314.html" target="_blank">Как правильно подать жалобу на незаконную СМС-рекламу</a></li>
+            <li><a href="http://fas.gov.ru/netcat_files/File/novaya_forma_zayavleniya_na_sayt%20%282%29.pdf" target="_blank">Образец заявления в ФАС</a></li>
+            <li><a href="http://www.fas.gov.ru/netcat_files/227/183/h_ea2faf80151312191bf826a69fca2844" target="_blank">Административный регламент Федеральной антимонопольной службы по исполнению государственной функции по рассмотрению дел, возбужденных по признакам нарушения законодательства Российской Федерации о рекламе, утвержденный Приказом ФАС России от 23.11.2012 N 711/12</a></li>
+            <li><a href="http://www.fas.gov.ru/legislative-acts/legislative-acts_50307.html" target="_blank">Правила рассмотрения антимонопольным органом дел, возбужденных по признакам нарушения законодательства Российской Федерации о рекламе, утвержденными постановлением Правительства Российской Федерации от 17.08.2006 N 508</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p></p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+        })
+      }(window.jQuery)
+    </script>
+  </body>
+</html>

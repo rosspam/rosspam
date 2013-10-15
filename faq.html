@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>РосСпам &middot; Вопросы и ответы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="РосСпам - автоматическая отправка жалобы в ФАС России на рекламное SMS-сообщение (СМС-спам)">
+    <meta name="keywords" content="смс, спам, жалоба, ФАС, ФАС России, федеральная, антимонопольная, служба, России, РФ, приложение, андроид, росспам, sms, spam, android, rosspam">
+    <meta name="description" content="Сервис для автоматического формирования жалобы в Федеральную антимонопольную службу России (ФАС) на рекламное SMS-сообщение (СМС-спам).">
+    <meta name="author" content="RosSpam">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 48px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 30px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://twitter.github.io/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-43713576-1']);
+      _gaq.push(['_setDomainName', 'rosspam.org']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/">Главная</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Читать
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="faq">Вопросы и ответы</a></li>
+              <li><a href="law">Законодательство</a></li>
+            </ul>
+          </li>
+          {% if user_authorized %}
+          <li><a href="profile">Профиль</a></li>
+          <li><a href="logout">Выйти</a></li>
+          {% else %}
+          <li><a href="register">Регистрация</a></li>
+          <li><a href="login">Войти</a></li>
+          {% endif %}
+        </ul>
+        <h3 class="muted">РосСпам <sup><abbr title="альфа-версия" data-toggle="modal" href="#modal-help-hash">&alpha;</abbr></sup></h3>
+
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <h4>Вопросы и ответы</h4>
+          <div class="accordion" id="accordion">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Приложение для Android
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <dl>
+                    <dt>Как это работает?</dt>
+                    <dd>Подробное описание работы приложения приведено на <a href="https://play.google.com/store/apps/details?id=org.rosspam" target="_blank">странице приложения</a> в Google Play.</dd><br>
+
+                    <dt>Что происходит с персональными данными пользователя, указанными в программе?</dt>
+                    <dd>Персональные данные пользователя программой никуда не передаются. Программа создает текст жалобы, куда подставляет эти данные, и открывает этот текст в вашей программе для работы с электронной почтой. Куда дальше будут отправлены эти данные зависит только от вас.</dd><br>
+
+                    <dt>Куда передается мобильный телефон пользователя?</dt>
+                    <dd>Полностью номер мобильного телефона никуда не передается. Номер телефона за исключением последних четырех цифр (т.е. номер типа +7916123) передается на сервер rosspam.org для формирования черного списка (и определения региона получателя). Передачу информации в черный список можно отключить в Настройках приложения.</dd><br>
+
+                    <dt>Как проверить, что приложение никуда не передает мои персональные данные?</dt>
+                    <dd>Самый простой способ - отключить приложению доступ в интернет. Это можно сделать, например, с помощью приложения <a href="https://play.google.com/store/apps/details?id=com.googlecode.droidwall.free" target="_blank">DroidWall</a> - приложение продолжит работать как и раньше. Более сложный способ - поставить какую-либо программу <a href="http://ru.wikipedia.org/wiki/%D0%A1%D0%BD%D0%B8%D1%84%D1%84%D0%B5%D1%80" target="_blank">сниффер</a> и посмотреть, что передает приложение. Если черный список не включен, то приложение совсем ничего передавать на сервер не будет. Если включен - то, как указано выше, будут передаваться только неперсональные данные.</dd><br>
+
+                    <dt>Почему приложение не реагирует на входящие SMS?</dt>
+                    <dd>Возможно, вами используется нестандартная программа для работы с SMS (например, <a href="https://play.google.com/store/apps/details?id=com.jb.gosms" target="_blank">GO SMS Pro</a>). Такие программы зачастую устанавливают себе наивысший приоритет получения SMS, в итоге SMS не доходят до остальных программ (в т.ч. и до приложения РосСпам). Другая возможная причина - какое-то приложение блокирует доступ к SMS сторонним программам.</dd><br>
+
+                    <dt>Почему другие приложения перестали реагировать на входящие SMS?</dt>
+                    <dd>Если приложение РосСпам останавливает обработку входящего SMS, считая его подозрительным, то вернуть его в обработку (т.е. дать другим приложениям его получить) уже нельзя - Android не позволяет этого сделать. Вы можете включить опцию "Продолжить обработку" в Настройках приложения - в этом случае SMS будет передано и в другие программы. Отрицательная сторона этого - о подозрительных SMS вы будете получать два уведомления - одно от приложения РосСпам, второе - от вашего стандартного приложения для работы с SMS.</dd><br>
+
+                    <dt>Почему приложение определяется мобильным антивирусом Avast как вредоносное (SMS-spoofing)?</dt>
+                    <dd>Мы выясняем этот вопрос с разработчиками Avast.</dd><br>
+
+                    <dt>Где найти email территориальных органов ФАС?</dt>
+                    <dd>Список email территориальных органов ФАС приведен в Приложении 1 к <a href="http://www.fas.gov.ru/netcat_files/227/183/h_ea2faf80151312191bf826a69fca2844" target="_blank">Регламенту ФАС</a>.</dd><br>
+
+                    <dt>Что означают значки (иконки) в Истории обработанных SMS?</dt>
+                    <dd>Белые полоски - отправитель был добавлен в Белый список, черные полоски - в Черный список. Значок РосСпам (синий восклицательный знак в восьмиугольнике) - была сформирована жалоба в ФАС.</dd><br>
+
+                  </dl>
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                  Федеральная антимонопольная служба
+                </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <dl>
+                    <dt>Почему жалобы отправляются в ФАС?</dt>
+                    <dd>Именно ФАС занимается вопросами недобросовестной рекламы. Смотрите, например, <a href="http://www.fas.gov.ru/legislative-acts/legislative-acts_50307.html" target="_blank">Правила ФАС</a>. Также - <a href="http://fas.gov.ru/contact-fas/sample-documents/sample-documents_30314.html" target="_blank">инструкцию</a> по подаче жалобы в ФАС на незаконную SMS-рекламу и <a href="http://fas.gov.ru/netcat_files/File/novaya_forma_zayavleniya_na_sayt%20%282%29.pdf" target="_blank">образец</a> заявления. </dd><br>
+
+                    <dt>Почему необходимо указывать так много персональных данных?</dt>
+                    <dd>Это требования Федерального закона N 59-ФЗ <a href="http://www.fas.gov.ru/legislative-acts/legislative-acts_50345.html" target="_blank">О порядке рассмотрения обращений граждан Российской федерации</a>. Эти же требования дублируются в указанных выше документах ФАС.</dd><br>
+
+                    <dt>В <a href="http://fas.gov.ru/contact-fas/sample-documents/sample-documents_30314.html" target="_blank">Порядке подачи жалобы</a> на сайте ФАС сказано, что к заявлению необходимо приложить документы, подтверждающие факт обращения к распространителю рекламы с требованием прекратить её распространение. Что с этим делать?</dt>
+                    <dd>В том же документе сказано, что эти документы необходимо прикладывать в том случае, если они у вас есть. Если вы не обращались к распространителю рекламы самостоятельно, то эти документы не нужны.</dd><br>
+
+                    <dt>От ФАС получен шаблонный ответ, что к заявлению приложено недостаточно данных - не хватает фотографии SMS, детализации от оператора и т.п. Что делать?</dt>
+                    <dd>В соответствии с пунктом 3.6 <a href="http://www.fas.gov.ru/netcat_files/227/183/h_ea2faf80151312191bf826a69fca2844" target="_blank">Регламента ФАС</a> и пунктом 13 <a href="http://www.fas.gov.ru/legislative-acts/legislative-acts_50307.html" target="_blank">Правил</a>, к заявлению были приложены все имеющиеся у вас доказательства нарушения требований законодательства о рекламе. В соответствии с пунктом 3.8 <a href="http://www.fas.gov.ru/netcat_files/227/183/h_ea2faf80151312191bf826a69fca2844" target="_blank">Регламента</a>, в случае невозможности предоставления доказательств, свидетельствующих о признаках нарушения законодательства о рекламе, заявитель вправе указать лицо или орган, от которого могут быть получены такие доказательства. В вашем заявлении был указан ваш оператор мобильной связи, от которого ФАС может получить дополнительные доказательства. В соответствии с пунктами 5.3-5.10 <a href="http://www.fas.gov.ru/netcat_files/227/183/h_ea2faf80151312191bf826a69fca2844" target="_blank">Регламента</a>, отсутствие дополнительных доказательств не может являться основанием для приостановления рассмотрения жалобы. Требования, указанные ФАС в <a href="http://fas.gov.ru/contact-fas/sample-documents/sample-documents_30314.html" target="_blank">инструкции</a> и в <a href="http://fas.gov.ru/netcat_files/File/novaya_forma_zayavleniya_na_sayt%20%282%29.pdf" target="_blank">образце заявления</a>, не являются частью законодательства.<br>
+                    Таким образом, ФАС необоснованно отказывает вам в рассмотрении вашего заявления. В настоящий момент мы ведем переговоры с ФАС, чтобы договориться о варианте Заявления, которое их устроит.<br>Вы можете либо предоставить дополнительные доказательства (требуемые ФАС), либо дождаться окончания наших переговоров, либо <a href="http://genproc.gov.ru/contacts/ipriem/address/" target="_blank">написать заявление</a> в Прокуратуру РФ на бездействие ФАС.</dd><br>
+
+                    <dt>Почему на обращение в территориальный орган ФАС будет дан более быстрый ответ, чем на обращение в ФАС России?</dt>
+                    <dd>ФАС России может направить рассмотрение заявления в территориальный орган ФАС (например, если заявитель из Санкт-Петербурга, то в Управление ФАС по Санкт-Петербургу). На это отводится до 30 дней. Направление жалобы напрямую в территориальный орган может сократить срок рассмотрения заявления.</dd><br>
+
+                    <dt>Перестану ли я сразу получать рекламные SMS после отправки жалобы?</dt>
+                    <dd>К сожалению, нет. Только рассмотрение вашего заявления в ФАС может занять до 2-х месяцев. </dd><br>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p></p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+        })
+      }(window.jQuery)
+    </script>
+  </body>
+</html>
